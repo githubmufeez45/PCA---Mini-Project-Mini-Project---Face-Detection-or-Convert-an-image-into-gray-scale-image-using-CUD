@@ -1,19 +1,25 @@
-###Convert Image to Grayscale image using CUDA
-##AIM:
+# Convert Image to Grayscale image using CUDA 
+
+## AIM:
+
 The aim of this project is to demonstrate how to convert an image to grayscale using CUDA programming without relying on the OpenCV library. It serves as an example of GPU-accelerated image processing using CUDA.
 
-##Procedure:
-Load the input image using the stb_image library.
-Allocate memory on the GPU for the input and output image buffers.
-Copy the input image data from the CPU to the GPU.
-Define a CUDA kernel function that performs the grayscale conversion on each pixel of the image.
-Launch the CUDA kernel with appropriate grid and block dimensions.
-Copy the resulting grayscale image data from the GPU back to the CPU.
-Save the grayscale image using the stb_image_write library.
-Clean up allocated memory.
-##Program:
+## Procedure:
+1. Load the input image using the stb_image library.
+2. Allocate memory on the GPU for the input and output image buffers.
+3. Copy the input image data from the CPU to the GPU.
+4. Define a CUDA kernel function that performs the grayscale conversion on each pixel of the image.
+5. Launch the CUDA kernel with appropriate grid and block dimensions.
+6. Copy the resulting grayscale image data from the GPU back to the CPU.
+7. Save the grayscale image using the stb_image_write library.
+8. Clean up allocated memory.
+
+## Program:
+```
 Name   : JEYA KRISHNA S J
 Reg No : 212222040064
+```
+```
 #include <stdio.h>
 #include <string>
 #include <math.h>
@@ -124,17 +130,19 @@ void outputImage(const std::string& output_file, unsigned char* grey_image, int 
 	cv::Mat greyData(rows, cols, CV_8UC1,(void *) grey_image);
 	cv::imwrite(output_file.c_str(), greyData);
 }
-##OUTPUT:
-##Input Image
-##horizontal-landscape
+```
 
-![Uploading 281334019-8be70deb-458d-4ac2-bfa6-2891212999c1.jpg…]()
+## OUTPUT:
 
-
-##Grayscale Image
-![281334110-df4c49df-7746-478a-b219-c33ce938ab13](https://github.com/githubmufeez45/PCA---Mini-Project-Mini-Project---Face-Detection-or-Convert-an-image-into-gray-scale-image-using-CUD/assets/134826568/38e0e6a0-419b-4237-a87b-e1e547a71b74)
+### Input Image
+![horizontal-landscape](https://github.com/JeyaKrishnaSJ/PCA---Mini-Project-Mini-Project---Face-Detection-or-Convert-an-image-into-gray-scale-image-using-CUD/assets/118707091/8be70deb-458d-4ac2-bfa6-2891212999c1)
 
 
-##Result:
+
+### Grayscale Image
+![image16994326690](https://github.com/JeyaKrishnaSJ/PCA---Mini-Project-Mini-Project---Face-Detection-or-Convert-an-image-into-gray-scale-image-using-CUD/assets/118707091/df4c49df-7746-478a-b219-c33ce938ab13)
+
+
+
+## Result:
 The CUDA program successfully converts the input image to grayscale using the GPU. The resulting grayscale image is saved as an output file. This example demonstrates the power of GPU parallelism in accelerating image processing tasks.
-
